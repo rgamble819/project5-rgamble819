@@ -49,6 +49,14 @@ public class GHDUtilities {
 		}
 	}
 
+	/**
+	 * Stores distance of all stations compared to STID in the array. Formatted
+	 * [distance0, distance1, distnace2, distance3, distance4]
+	 * 
+	 * @return int[] returns integer array of differences in distance of all
+	 *         stations including itself
+	 * @throws IOException
+	 */
 	public static int[] calcDistanceArray(String STID) throws IOException {
 		int[] distanceArray = new int[5];
 		String[] array = new String[GHDFrame.EST_NUM_OF_WORDS];
