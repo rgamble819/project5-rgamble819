@@ -45,8 +45,7 @@ public class GHDButtonListener implements ActionListener {
 				for (String equals : equalDist) {
 					ghd.showStationText.setText(ghd.showStationText.getText() + "\n" + equals);
 				}
-			}
-			else if (jb.getText().equalsIgnoreCase("Calculate HD")) {
+			} else if (jb.getText().equalsIgnoreCase("Calculate HD")) {
 				int[] dist = GHDUtilities.calcDistanceArray((String) ghd.dropMenu.getSelectedItem());
 				ghd.dist0.setText(" " + dist[0]);
 				ghd.dist1.setText(" " + dist[1]);
@@ -54,19 +53,17 @@ public class GHDButtonListener implements ActionListener {
 				ghd.dist3.setText(" " + dist[3]);
 				ghd.dist4.setText(" " + dist[4]);
 				ghd.showStationText.setText("");
-			}
-			else if (jb.getText().equals("Add Station")) {
+			} else if (jb.getText().equals("Add Station")) {
 
 				String stationToAdd = ghd.addName.getText();
 				PrintWriter pw;
-				
+
 				try {
 					pw = new PrintWriter(new FileWriter("Mesonet.txt", true));
 
+					pw.println(stationToAdd);
+					pw.close();
 
-				pw.println(stationToAdd);
-				pw.close();
-				
 				} catch (IOException e1) {
 					System.out.println(e1.getMessage());
 				}
