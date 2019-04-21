@@ -6,6 +6,15 @@ import javax.swing.JComboBox;
 
 public class GHDUtilities {
 
+	/**
+	 * 
+	 * @param stationsList
+	 *            - Over-sized array of stations (Must be initialized by Estimated
+	 *            Words Constant).
+	 * @return int - The number of words in the over-sized array
+	 * @throws IOException
+	 *             - when Mesonet.txt does not exist
+	 */
 	public static int getMesonetStations(String[] stationsList) throws IOException {
 		// wordCount keeps track of how many words are added to the over-sized array
 		int wordCount = 0;
