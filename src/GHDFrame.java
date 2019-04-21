@@ -10,7 +10,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class GHDFrame extends JPanel{
+public class GHDFrame extends JFrame {
 	private static final int FRAME_HEIGHT = 1000;
 	private static final int FRAME_WIDTH = 500;
 	protected static final int EST_NUM_OF_WORDS = 500;
@@ -35,6 +35,7 @@ public class GHDFrame extends JPanel{
 
 	protected JButton addStation;
 	protected JTextField addName;
+
 	private final class GHDPanel extends JPanel {
 		/**
 		 * Paints the background
