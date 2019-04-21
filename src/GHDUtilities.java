@@ -44,6 +44,14 @@ public class GHDUtilities {
 		}
 		return dist;
 	}
+	
+	/**
+	 * 
+	 * @param dropMenu
+	 *            updates the contents in the ComboBox
+	 * @throws IOException
+	 *             when Mesonet.txt does not exist
+	 */
 	public static void refreshMenu(JComboBox<String> dropMenu) throws IOException {
 
 		// TODO: Only show duplicates once
