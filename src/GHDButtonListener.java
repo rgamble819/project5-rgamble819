@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -51,6 +53,25 @@ public class GHDButtonListener implements ActionListener {
 				ghd.dist2.setText(" " + dist[2]);
 				ghd.dist3.setText(" " + dist[3]);
 				ghd.dist4.setText(" " + dist[4]);
+				ghd.showStationText.setText("");
+			}
+			else if (jb.getText().equals("Add Station")) {
+
+				String stationToAdd = ghd.addName.getText();
+				PrintWriter pw;
+				
+				try {
+					pw = new PrintWriter(new FileWriter("Mesonet.txt", true));
+
+
+				pw.println(stationToAdd);
+				pw.close();
+				
+				} catch (IOException e1) {
+					System.out.println(e1.getMessage());
+				}
+
+				GHDUtilities.refreshMenu(ghd.dropMenu);
 				ghd.showStationText.setText("");
 			}
 		}
