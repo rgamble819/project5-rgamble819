@@ -3,6 +3,7 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -134,5 +135,31 @@ public class GHDFrame extends JPanel{
 			add(addName);
 			/* ================================== */
 		}
+	}
+
+	/**
+	 * Adds Listeners and sets up GUI
+	 * 
+	 * @throws IOException
+	 */
+	public GHDFrame() throws IOException {
+		super("Hamming Distance");
+
+		containerPanel = new GHDPanel();
+		add(containerPanel);
+
+		slider.addChangeListener(new GHDSliderListener(this));
+		addStation.addActionListener(new GHDButtonListener(this));
+		showStation.addActionListener(new GHDButtonListener(this));
+		calcHD.addActionListener(new GHDButtonListener(this));
+
+		setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) throws IOException {
+		new GHDFrame();
+
 	}
 }
