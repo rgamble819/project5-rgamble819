@@ -24,7 +24,17 @@ public class GHDUtilities {
 		// returns the length of the over-sized array
 		return wordCount;
 	}
-	
+	/**
+	 * Returns the Hamming Distance between two station IDs.
+	 * 
+	 * @param StID
+	 *            - String ID of the station
+	 * @param toCompare
+	 *            - String ID of the station to compare against
+	 * @return int - The Hamming Distance between the two station IDs
+	 * @throws IOException
+	 *             when Mesonet.txt does not exist
+	 */
 	public static int calcDist(String StID, String toCompare) throws IOException {
 		int dist = 0;
 		for (int wordIndex = 0; wordIndex < StID.length(); wordIndex++) {
