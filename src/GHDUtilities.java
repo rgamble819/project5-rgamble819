@@ -1,14 +1,30 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JComboBox;
 
 public class GHDUtilities {
 
-	public static int getMesonetStations(String[] stationsList) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public static int getMesonetStations(String[] stationsList) throws IOException {
+		// wordCount keeps track of how many words are added to the over-sized array
+		int wordCount = 0;
 
+		// Read the file and add the station IDs to the array
+		BufferedReader fr = new BufferedReader(new FileReader("Mesonet.txt"));
+		String line = fr.readLine();
+
+		while (line != null) {
+			stationsList[wordCount] = line;
+			line = fr.readLine();
+			wordCount++;
+		}
+		fr.close();
+
+		// returns the length of the over-sized array
+		return wordCount;
+	}
+	
 	public static int calcDist(String stID, String string) {
 		// TODO Auto-generated method stub
 		return 0;
