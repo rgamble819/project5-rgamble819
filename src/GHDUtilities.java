@@ -25,11 +25,15 @@ public class GHDUtilities {
 		return wordCount;
 	}
 	
-	public static int calcDist(String stID, String string) {
-		// TODO Auto-generated method stub
-		return 0;
+	public static int calcDist(String StID, String toCompare) throws IOException {
+		int dist = 0;
+		for (int wordIndex = 0; wordIndex < StID.length(); wordIndex++) {
+			if (StID.toUpperCase().charAt(wordIndex) != toCompare.toUpperCase().charAt(wordIndex)) {
+				dist++;
+			}
+		}
+		return dist;
 	}
-
 	public static void refreshMenu(JComboBox<String> dropMenu) throws IOException {
 
 		// TODO: Only show duplicates once
