@@ -17,4 +17,9 @@ public class GHDUtilities {
 		
 	}
 
+	public static int[] calcDistanceArray(String selectedItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

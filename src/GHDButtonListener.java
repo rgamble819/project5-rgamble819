@@ -44,6 +44,15 @@ public class GHDButtonListener implements ActionListener {
 					ghd.showStationText.setText(ghd.showStationText.getText() + "\n" + equals);
 				}
 			}
+			else if (jb.getText().equalsIgnoreCase("Calculate HD")) {
+				int[] dist = GHDUtilities.calcDistanceArray((String) ghd.dropMenu.getSelectedItem());
+				ghd.dist0.setText(" " + dist[0]);
+				ghd.dist1.setText(" " + dist[1]);
+				ghd.dist2.setText(" " + dist[2]);
+				ghd.dist3.setText(" " + dist[3]);
+				ghd.dist4.setText(" " + dist[4]);
+				ghd.showStationText.setText("");
+			}
 		}
 	}
 }
