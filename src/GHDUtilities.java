@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.JComboBox;
 
@@ -62,17 +64,20 @@ public class GHDUtilities {
 	 *             when Mesonet.txt does not exist
 	 */
 	public static void refreshMenu(JComboBox<String> dropMenu) throws IOException {
-
-		// TODO: Only show duplicates once
-		// TODO: Put in Alphabetical Order.
-
 		// Get the list of words from file
 		String[] stidlist = new String[GHDFrame.EST_NUM_OF_WORDS];
 		int words = GHDUtilities.getMesonetStations(stidlist);
-
-		// Add the list of words to the menu
+		Set<String> sortedWords = new TreeSet<String>();
+		
+		// Add the list of words to the sortedList
 		for (int index = 0; index < words; index++) {
-			dropMenu.addItem(stidlist[index]);
+			sortedWords.add(stidlist[index]);
+		}
+		
+		// Add sorted set to drop menu
+		for(String stid : sortedWords) 
+		{
+			dropMenu.addItem(stid);
 		}
 	}
 

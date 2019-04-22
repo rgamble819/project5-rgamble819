@@ -10,6 +10,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class GHDFrame extends JFrame {
 	private static final int FRAME_HEIGHT = 1000;
 	private static final int FRAME_WIDTH = 500;
