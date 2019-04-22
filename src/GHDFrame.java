@@ -36,6 +36,9 @@ public class GHDFrame extends JFrame {
 
 	protected JButton addStation;
 	protected JTextField addName;
+	
+	private JPanel pane0;
+	private JPanel pane1;
 
 	private final class GHDPanel extends JPanel {
 		/**
@@ -122,19 +125,35 @@ public class GHDFrame extends JFrame {
 			addName = new JTextField("ZERO");
 			addName.setBounds(150, 785, 100, 25);
 
-			add(slider);
-			add(sliderText);
-			add(showStation);
-			add(showStationPane);
-			add(dropMenu);
-			add(calcHD);
-			add(dist0);
-			add(dist1);
-			add(dist2);
-			add(dist3);
-			add(dist4);
-			add(addStation);
-			add(addName);
+			pane0 = new JPanel();
+			pane1 = new JPanel();
+			pane0.setLayout(null);
+			pane1.setLayout(null);
+			
+			pane1.setOpaque(false);
+			pane0.setOpaque(false);
+			pane0.setBounds(0, 0, 1000, 1000);
+			pane1.setBounds(0, 0, 1000, 2000);
+			
+			
+			pane0.add(slider);
+			pane0.add(sliderText);
+			pane0.add(showStation);
+			pane0.add(showStationPane);
+			
+			add(pane0);
+
+			pane1.add(dropMenu);
+			pane1.add(calcHD);
+			pane1.add(dist0);
+			pane1.add(dist1);
+			pane1.add(dist2);
+			pane1.add(dist3);
+			pane1.add(dist4);
+			pane1.add(addStation);
+			pane1.add(addName);
+			
+			add(pane1);
 			/* ================================== */
 		}
 	}
