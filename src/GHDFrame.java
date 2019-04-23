@@ -13,32 +13,33 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class GHDFrame extends JFrame {
 	private static final int FRAME_HEIGHT = 1000;
-	private static final int FRAME_WIDTH = 500;
-	protected static final int EST_NUM_OF_WORDS = 500;
+	private static final int FRAME_WIDTH = 1000;
+	 static final int EST_NUM_OF_WORDS = 500;
 
 	private GHDPanel containerPanel;
 
-	protected JTextField sliderText;
-	protected JSlider slider;
+	 JTextField sliderText;
+	 JSlider slider;
 
-	protected JButton showStation;
-	protected JScrollPane showStationPane;
-	protected JTextArea showStationText;
+	 JButton showStation;
+	 JScrollPane showStationPane;
+	 JTextArea showStationText;
 
-	protected JComboBox<String> dropMenu;
-	protected JButton calcHD;
+	 JComboBox<String> dropMenu;
+	 JButton calcHD;
 
-	protected JTextField dist0;
-	protected JTextField dist1;
-	protected JTextField dist2;
-	protected JTextField dist3;
-	protected JTextField dist4;
+	 JTextField dist0;
+	 JTextField dist1;
+	 JTextField dist2;
+	 JTextField dist3;
+	 JTextField dist4;
 
-	protected JButton addStation;
-	protected JTextField addName;
+	 JButton addStation;
+	 JTextField addName;
 	
 	private JPanel pane0;
 	private JPanel pane1;
+	 DrawPanel pane2;
 
 	private final class GHDPanel extends JPanel {
 		/**
@@ -63,6 +64,10 @@ public class GHDFrame extends JFrame {
 		public GHDPanel() throws IOException {
 			setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 			setLayout(null);
+			
+			pane2 = new DrawPanel();
+
+			add(pane2);
 
 			/* =========Create All Components======== */
 			sliderText = new JTextField(" 2\t");
@@ -82,7 +87,6 @@ public class GHDFrame extends JFrame {
 			showStationText = new JTextArea("");
 			showStationPane = new JScrollPane(showStationText, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 					JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-			// showStationPane.setLayout(null);
 			showStationPane.setBounds(50, 150, 250, 250);
 			showStationText.setBounds(5, 0, 250, 500);
 			showStationPane.add(showStationText);
@@ -132,8 +136,8 @@ public class GHDFrame extends JFrame {
 			
 			pane1.setOpaque(false);
 			pane0.setOpaque(false);
-			pane0.setBounds(0, 0, 1000, 1000);
-			pane1.setBounds(0, 0, 1000, 2000);
+			pane0.setBounds(0, 0, 500, 1000);
+			pane1.setBounds(0, 0, 500, 1000);
 			
 			
 			pane0.add(slider);
@@ -173,7 +177,7 @@ public class GHDFrame extends JFrame {
 		addStation.addActionListener(new GHDButtonListener(this));
 		showStation.addActionListener(new GHDButtonListener(this));
 		calcHD.addActionListener(new GHDButtonListener(this));
-
+		
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -181,6 +185,5 @@ public class GHDFrame extends JFrame {
 
 	public static void main(String[] args) throws IOException {
 		new GHDFrame();
-
 	}
 }
