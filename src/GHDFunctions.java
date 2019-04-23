@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 import javax.swing.JComboBox;
 
-public class GHDUtilities {
+public class GHDFunctions {
 
 	/**
 	 * 
@@ -66,7 +66,7 @@ public class GHDUtilities {
 	public static void refreshMenu(JComboBox<String> dropMenu) throws IOException {
 		// Get the list of words from file
 		String[] stidlist = new String[GHDFrame.EST_NUM_OF_WORDS];
-		int words = GHDUtilities.getMesonetStations(stidlist);
+		int words = GHDFunctions.getMesonetStations(stidlist);
 		Set<String> sortedWords = new TreeSet<String>();
 		
 		// Add the list of words to the sortedList

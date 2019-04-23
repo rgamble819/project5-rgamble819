@@ -39,7 +39,7 @@ public class GHDFrame extends JFrame {
 	
 	private JPanel pane0;
 	private JPanel pane1;
-	 DrawPanel pane2;
+	 GHDDrawPanel pane2;
 
 	private final class GHDPanel extends JPanel {
 		/**
@@ -65,7 +65,7 @@ public class GHDFrame extends JFrame {
 			setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 			setLayout(null);
 			
-			pane2 = new DrawPanel();
+			pane2 = new GHDDrawPanel();
 
 			add(pane2);
 
@@ -96,7 +96,7 @@ public class GHDFrame extends JFrame {
 			dropMenu = new JComboBox<>();
 
 			// Add Stations to drop menu
-			GHDUtilities.refreshMenu(dropMenu);
+			GHDFunctions.refreshMenu(dropMenu);
 
 			dropMenu.setSelectedItem("NRMN");
 			dropMenu.setEditable(false);

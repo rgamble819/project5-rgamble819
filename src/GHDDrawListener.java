@@ -3,13 +3,11 @@ import java.awt.event.MouseMotionListener;
 
 public class GHDDrawListener implements MouseMotionListener{
 
-	private DrawPanel drawPanel;
+	private GHDDrawPanel drawPanel;
 
 	boolean isDrawing;
-
-	int numPoints = 0;
 	
-	Lines line = null;
+	GHDLines line = null;
 	
 	/**
 	 * 
@@ -17,7 +15,7 @@ public class GHDDrawListener implements MouseMotionListener{
 	 *            - The panel that you want to make a draw area (Must be of type
 	 *            DrawPanel)
 	 */
-	public GHDDrawListener(DrawPanel drawPanel) {
+	public GHDDrawListener(GHDDrawPanel drawPanel) {
 		this.drawPanel = drawPanel;
 	}
 
@@ -30,11 +28,9 @@ public class GHDDrawListener implements MouseMotionListener{
 			line.addPoint(e.getLocationOnScreen());
 			drawPanel.drawingComponents.add(line);
 			line = null;
-			drawPanel.segments.put(drawPanel.numSegmentsDrawn, numPoints);
 		} else {
 			if (isDrawing) {
-				line = new Lines(e.getLocationOnScreen());
-				numPoints++;
+				line = new GHDLines(e.getLocationOnScreen());
 			}
 		}
 		drawPanel.repaint();
@@ -46,7 +42,6 @@ public class GHDDrawListener implements MouseMotionListener{
 	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		drawPanel.numSegmentsDrawn++;
 		line = null;
 		isDrawing = false;
 	}

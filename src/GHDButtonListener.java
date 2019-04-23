@@ -30,14 +30,14 @@ public class GHDButtonListener implements ActionListener {
 				JButton jb = (JButton) e.getSource();
 				if (jb.getText().equals("Show Station")) {
 					String[] stationsList = new String[GHDFrame.EST_NUM_OF_WORDS];
-					int wordCount = GHDUtilities.getMesonetStations(stationsList);
+					int wordCount = GHDFunctions.getMesonetStations(stationsList);
 
 					ArrayList<String> equalDist = new ArrayList<>();
 					String StID = (String) ghd.dropMenu.getSelectedItem();
 					int distance = ghd.slider.getValue();
 
 					for (int index = 0; index < wordCount; index++) {
-						if (GHDUtilities.calcDist(StID, stationsList[index]) == distance) {
+						if (GHDFunctions.calcDist(StID, stationsList[index]) == distance) {
 							equalDist.add(stationsList[index]);
 						}
 					}
@@ -47,7 +47,7 @@ public class GHDButtonListener implements ActionListener {
 						ghd.showStationText.setText(ghd.showStationText.getText() + "\n" + equals);
 					}
 				} else if (jb.getText().equalsIgnoreCase("Calculate HD")) {
-					int[] dist = GHDUtilities.calcDistanceArray((String) ghd.dropMenu.getSelectedItem());
+					int[] dist = GHDFunctions.calcDistanceArray((String) ghd.dropMenu.getSelectedItem());
 					ghd.dist0.setText(" " + dist[0]);
 					ghd.dist1.setText(" " + dist[1]);
 					ghd.dist2.setText(" " + dist[2]);
@@ -69,7 +69,7 @@ public class GHDButtonListener implements ActionListener {
 						System.out.println(e1.getMessage());
 					}
 
-					GHDUtilities.refreshMenu(ghd.dropMenu);
+					GHDFunctions.refreshMenu(ghd.dropMenu);
 					ghd.showStationText.setText("");
 				}
 			}

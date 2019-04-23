@@ -7,16 +7,13 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class DrawPanel extends JPanel {
+public class GHDDrawPanel extends JPanel {
 
-	protected ArrayList<Lines> drawingComponents;
-	HashMap<Integer, Integer> segments;
+	protected ArrayList<GHDLines> drawingComponents;
 
 	Point middleMan;
 
 	boolean isCompleted = false;
-
-	int numSegmentsDrawn = 0;
 
 	/**
 	 * Paints the drawing lines on the Screen/Panel
@@ -39,10 +36,9 @@ public class DrawPanel extends JPanel {
 	/**
 	 * Constructs the drawPanel
 	 */
-	public DrawPanel() {
+	public GHDDrawPanel() {
 		super();
 		drawingComponents = new ArrayList<>();
-		segments = new HashMap<Integer, Integer>(1);
 		setBackground(Color.WHITE);
 		setBounds(450, 20, 500, 800);
 		setLayout(null);

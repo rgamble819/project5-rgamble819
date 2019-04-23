@@ -1,6 +1,6 @@
 import java.awt.Point;
 
-public class Lines {
+public class GHDLines {
 	
 	private Point[] points;
 	
@@ -8,7 +8,7 @@ public class Lines {
 	 *  Creates a line object that will be drawn onto screen. Consists of 2 points
 	 * @param locationOnScreen - From mouse Event
 	 */
-	Lines(Point locationOnScreen) {
+	GHDLines(Point locationOnScreen) {
 		points = new Point[2];
 		points[0] = locationOnScreen;
 		points[1] = locationOnScreen;
