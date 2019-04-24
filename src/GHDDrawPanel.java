@@ -11,7 +11,6 @@ public class GHDDrawPanel extends JPanel {
 
 	protected ArrayList<GHDLines> drawingComponents;
 
-	Point middleMan;
 
 	boolean isCompleted = false;
 
