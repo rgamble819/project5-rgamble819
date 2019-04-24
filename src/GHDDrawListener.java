@@ -7,7 +7,7 @@ public class GHDDrawListener implements MouseMotionListener{
 
 	boolean isDrawing;
 	
-	GHDLines line = null;
+	GHDLines line;
 	
 	/**
 	 * 
