@@ -59,15 +59,10 @@ public class GHDButtonListener implements ActionListener {
 					String stationToAdd = ghd.addName.getText();
 					PrintWriter pw;
 
-					try {
-						pw = new PrintWriter(new FileWriter("Mesonet.txt", true));
+					pw = new PrintWriter(new FileWriter("Mesonet.txt", true));
 
-						pw.println(stationToAdd);
-						pw.close();
-
-					} catch (IOException e1) {
-						System.out.println(e1.getMessage());
-					}
+					pw.println(stationToAdd);
+					pw.close();
 
 					GHDFunctions.refreshMenu(ghd.dropMenu);
 					ghd.showStationText.setText("");

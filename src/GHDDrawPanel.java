@@ -2,22 +2,22 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GHDDrawPanel extends JPanel {
 
-	protected ArrayList<GHDLines> drawingComponents;
-
-
-	boolean isCompleted = false;
+	ArrayList<GHDLines> drawingComponents;
 
 	/**
 	 * Paints the drawing lines on the Screen/Panel
 	 */
 	public void paintComponent(Graphics g) {
 		g.drawString("Left-Click and hold anywhere to draw", 15, 15);
+		//g.drawString("Enter R-G-B Value and click enter to change colors", 0, 785);   
 		g.drawRect(0, 0, 500, 800);
+		
 		for (int i = 0; i < drawingComponents.size() - 1; i++) {
 			Point[] p = drawingComponents.get(i).getLine();
 			if (i > 1) {
@@ -30,6 +30,12 @@ public class GHDDrawPanel extends JPanel {
 		}
 	}
 
+	/*
+	JTextField r = new JTextField("0");
+	JTextField g = new JTextField("0");
+	JTextField b = new JTextField("0");
+	*/
+	
 	/**
 	 * Constructs the drawPanel
 	 */
@@ -40,6 +46,30 @@ public class GHDDrawPanel extends JPanel {
 		setBounds(450, 20, 500, 800);
 		setLayout(null);
 		addMouseMotionListener(new GHDDrawListener(this));
-		this.setLocation(450, 20);
+		setLocation(450, 20);
+	/*
+		r.setBounds(325, 775, 35, 25);
+		g.setBounds(375, 775, 35, 25);
+		b.setBounds(425, 775, 35, 25);
+		add(r);
+		add(g);
+		add(b);
+	*/
 	}
+	
+	public void clear() 
+	{
+		drawingComponents = new ArrayList<GHDLines>();
+		repaint();
+	}
+	
+	//TODO:
+	/*
+	public void changeColor(int r, int g, int b) 
+	{
+		float[] hsb = new float[3];
+		Color.RGBtoHSB(r, g, b, hsb);
+		changeColor = Color.getHSBColor(hsb[0], hsb[1], hsb[2]);
+	}
+	*/
 }

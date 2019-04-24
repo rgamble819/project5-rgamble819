@@ -26,7 +26,7 @@ public class GHDFrame extends JFrame {
 	 JTextArea showStationText;
 
 	 JComboBox<String> dropMenu;
-	 JButton calcHD;
+	 private JButton calcHD;
 
 	 JTextField dist0;
 	 JTextField dist1;
@@ -34,12 +34,16 @@ public class GHDFrame extends JFrame {
 	 JTextField dist3;
 	 JTextField dist4;
 
-	 JButton addStation;
+	 private JButton addStation;
 	 JTextField addName;
 	
-	private JPanel pane0;
-	private JPanel pane1;
-	 GHDDrawPanel pane2;
+	 private JPanel pane0;
+	 private JPanel pane1;
+	 private GHDDrawPanel pane2;
+
+     private JButton clearButton;
+     private JButton enterButton;
+
 
 	private final class GHDPanel extends JPanel {
 		/**
@@ -66,9 +70,20 @@ public class GHDFrame extends JFrame {
 			setLayout(null);
 			
 			pane2 = new GHDDrawPanel();
-
 			add(pane2);
-
+					
+			clearButton = new JButton("Clear");
+			clearButton.addActionListener(new ClearButtonListener(pane2));
+			clearButton.setLocation(500, 850);
+			clearButton.setBounds(500, 850, 175, 25);
+			add(clearButton);
+			
+			/*
+			enterButton = new JButton("Enter");
+			enterButton.addActionListener(new EnterColorListener(pane2));
+			enterButton.setBounds(675, 850, 175, 25);
+			add(enterButton);
+			 */
 			/* =========Create All Components======== */
 			sliderText = new JTextField(" 2\t");
 			sliderText.setEditable(false);
@@ -184,6 +199,7 @@ public class GHDFrame extends JFrame {
 	}
 
 	public static void main(String[] args) throws IOException {
+
 		new GHDFrame();
 	}
 }
