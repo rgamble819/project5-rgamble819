@@ -42,7 +42,7 @@ public class GHDFrame extends JFrame {
 	 private GHDDrawPanel pane2;
 
      private JButton clearButton;
-     private JButton enterButton;
+    // private JButton enterButton;
 
 
 	private final class GHDPanel extends JPanel {
